@@ -37,7 +37,7 @@ def source_dataset(source_dataset_url):
    #     os.mkdir(data_dir)
 
   #  file_location = os.path.join(data_dir, data_set_name+'.csv')
-    file_location = "../covid_counties_100.csv"
+    file_location = "/var/task/covid_counties_100.csv"
 
     s3_bucket = os.environ['S3_BUCKET']
     s3 = boto3.client('s3')
