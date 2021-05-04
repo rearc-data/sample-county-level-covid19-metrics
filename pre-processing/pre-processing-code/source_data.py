@@ -11,32 +11,33 @@ from io import BytesIO
 def source_dataset(source_dataset_url):
     source_dataset_url = "../covid_counties_100.csv"
     
-    response = None
-    retries = 5
-    for attempt in range(retries):
-        try:
-            response = urlopen(source_dataset_url)
-        except HTTPError as e:
-            if attempt == retries:
-                raise Exception('HTTPError: ', e.code)
-            time.sleep(0.2 * attempt)
-        except URLError as e:
-            if attempt == retries:
-                raise Exception('URLError: ', e.reason)
-            time.sleep(0.2 * attempt)
-        else:
-            break
+    # response = None
+    #retries = 5
+    # for attempt in range(retries):
+      #  try:
+         #   response = urlopen(source_dataset_url)
+        # except HTTPError as e:
+           # if attempt == retries:
+             #   raise Exception('HTTPError: ', e.code)
+           # time.sleep(0.2 * attempt)
+       # except URLError as e:
+          #  if attempt == retries:
+           #     raise Exception('URLError: ', e.reason)
+           # time.sleep(0.2 * attempt)
+       # else:
+         #   break
             
-    if response is None:
-        raise Exception('There was an issue downloading the dataset')
+   # if response is None:
+    #    raise Exception('There was an issue downloading the dataset')
             
     data_set_name = os.environ['DATA_SET_NAME']
 
-    data_dir = '/tmp'
-    if not os.path.exists(data_dir):
-        os.mkdir(data_dir)
+  #  data_dir = '/tmp'
+  #  if not os.path.exists(data_dir):
+   #     os.mkdir(data_dir)
 
-    file_location = os.path.join(data_dir, data_set_name+'.csv')
+  #  file_location = os.path.join(data_dir, data_set_name+'.csv')
+    file_location = "../covid_counties_100.csv"
 
     s3_bucket = os.environ['S3_BUCKET']
     s3 = boto3.client('s3')
@@ -48,9 +49,12 @@ def source_dataset(source_dataset_url):
     asset_list = []
 
     obj_name = file_location.split('/', 3).pop().replace(' ', '_').lower()
-    file_location = os.path.join(data_dir, obj_name)
+  #  file_location = os.path.join(data_dir, obj_name)
     new_s3_key = data_set_name + '/dataset/' + obj_name
-    filedata = response.read()
+   # filedata = response.read()
+    with open(file_location) as f:
+        mystring = f.read()
+        filedata = bytes(mystring, 'utf-8')
 
     has_changes = md5_compare(s3, s3_bucket, new_s3_key, BytesIO(filedata))
     if has_changes:
