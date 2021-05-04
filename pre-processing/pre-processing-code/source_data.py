@@ -9,7 +9,7 @@ from boto3.s3.transfer import TransferConfig
 from io import BytesIO
 
 def source_dataset(source_dataset_url):
-    # source_dataset_url = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PERMIT"
+    source_dataset_url = "./covid_counties_100.csv"
     
     response = None
     retries = 5
