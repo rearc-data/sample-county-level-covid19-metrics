@@ -1,6 +1,6 @@
 #  COVID-19 Metrics by US County | CovidActNow
 
-The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
+This is a 100 row sample of the Covid-19 County Level Metrics published by [https://covidactnow.org](https://covidactnow.org).
 
 ## Main Overview
 The dataset file included with this product is provided in CSV format. Data definitions are as follows: 
