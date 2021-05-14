@@ -1,6 +1,7 @@
 #  COVID-19 Metrics by US County | CovidActNow
+You can subscribe to the AWS Data Exchange product utilizing the automation featured in this repository by visiting https://aws.amazon.com/marketplace/pp/prodview-6qhrg6oo5mmn2?ref_=beagle&applicationId=AWSMPContessa
 
-This is a 100 row sample of the Covid-19 County Level Metrics published by [https://covidactnow.org](https://covidactnow.org).
+This is a 100 row sample of the Covid-19 County Level Metrics published by [https://covidactnow.org](https://covidactnow.org). 
 
 ## Main Overview
 The dataset file included with this product is provided in CSV format. Data definitions are as follows: 
